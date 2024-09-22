@@ -2,21 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lab1-2</title>
 </head>
-<body>
-  <script type="text/javascript">
-      document.write("<table>");
-      for (var tr=1; tr<=10; tr++)
-      {
-        document.write("<tr>");
-        for(var td=1; td<=10; td++)
-        {
-          document.write("<td>" + (td * tr) + "</td>");
+<script type="text/javascript">
+    (function () {
+        'use strict';
+        document.write("<table>");
+        for (var tr = 1; tr <= 10; tr++) {
+            document.write("<tr>");
+            for (var td = 1; td <= 10; td++) {
+                document.write("<td>" + (td * tr) + "</td>");
+            }
+            document.write("</tr>");
         }
-        document.write("</tr>");
-      }
-      document.write("</table>");
-    </script>
+        document.write("</table>");
+    }());
+</script>
+<body>
 </body>
 </html>

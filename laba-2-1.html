@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab2-1</title>
+        <script>
+            (function (){
+                'use strict';
+                function openWindow() {
+                    let isSized = false;
+                    function changeSize() {
+                        const img = document.getElementById('appleJpg');
+                        if (isSized) {
+                            img.style.transform = "scale(1)";
+                        } else {
+                            img.style.transform = "scale(2)";
+                        }
+                        isSized = !isSized;
+                    }
+                    const img = document.getElementById('appleJpg');
+                    img.addEventListener('click', changeSize);
+                }
+                window.onload = openWindow;
+            }());
+     </script>
+ </head>
+ <body>
+     <img src = "images/apple.jpg" id="appleJpg">
+</body>
+</html>

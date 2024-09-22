@@ -2,24 +2,31 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lab1-4</title>
     <script type="text/javascript">
-        class NewClass {
-            constructor(title, url) {
-                this.title = title;
-                this.url = url;
+        (function () {
+            'use strict';
+            class NewClass {
+                constructor(title, url) {
+                    this.title = title;
+                    this.url = url;
+                }
+
+                show() {
+                    document.write("Title: " + this.title + "<br>");
+                    document.write("URL: " + this.url + "<br>");
+                }
             }
-            show() {
-                document.write("Title: " + this.title + "<br>");
-                document.write("URL: " + this.url + "<br>");
+
+            function example() {
+                const instance = new NewClass("Google", "https://www.google.com");
+                instance.show();
             }
-        }
-        function example() {
-            const instance = new NewClass("Google", "https://www.google.com");
-            instance.show();
-        }
+            window.onload = example;
+        }());
     </script>
 </head>
-<body onload="example()">
+<body>
 </body>
 </html>
