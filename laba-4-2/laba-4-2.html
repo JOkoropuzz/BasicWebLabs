@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG Проверка</title>
+  <script src="Modernizr.js"></script>
+</head>
+<body>
+<div class="svg-container">
+  <h1>embed</h1>
+  <embed src="../images/apple.svg" type="image/svg+xml" width="120" height="120">
+</div>
+<div class="svg-container">
+  <h2>object</h2>
+  <object data="../images/apple.svg" type="image/svg+xml" width="120" height="120"></object>
+</div>
+<div class="svg-container">
+  <h3>svg</h3>
+  <svg width="120" height="120" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="100" fill="yellow" />
+  </svg>
+</div>
+
+<script>
+  (function () {
+    "use strict";
+    if (Modernizr.svg) {
+      console.log('Браузер поддерживает SVG.');
+    } else {
+      console.log('Браузер не поддерживает SVG.');
+    }
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lab4-1</title>
+</head>
+<body>
+<canvas id="gradient" width="600" height="600"></canvas>
+<script>
+  (function () {
+    "use strict";
+    const canvas = document.getElementById('gradient');
+    if (canvas.getContext) {
+      const ctx = canvas.getContext('2d');
+      if (ctx && typeof ctx.createLinearGradient === 'function') {
+        const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+        gradient.addColorStop(0, '#FF0099');
+        gradient.addColorStop(0.5, '#00CCCC');
+        gradient.addColorStop(1, 'yellow');
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0,0, canvas.width, canvas.height);
+      } else {
+        console.log("Canvas не поддерживает градиенты");
+      }
+    } else {
+      console.log("Canvas не поддерживается");
+    }
+  })();
+</script>
+</body>
+</html>
