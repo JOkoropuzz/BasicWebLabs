@@ -5,6 +5,52 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Final task</title>
+    <script>
+        (function () {
+            "use strict";
+
+            function Is_Support_Localstorage() {
+                try {
+                    return 'localStorage' in window && window['localStorage'] !== null;
+                } catch(e) {
+                    return false;
+                }
+            }
+
+            function saveData() {
+                if (!Is_Support_Localstorage()) {
+                    alert("Ваш браузер не поддерживает localStorage.");
+                    return;
+                }
+                let name = document.getElementById("name").value;
+                let email = document.getElementById("email").value;
+
+                localStorage.setItem('name', name);
+                localStorage.setItem('email', email);
+
+            }
+
+            function loadData() {
+                if (!Is_Support_Localstorage()) {
+                    alert("Ваш браузер не поддерживает localStorage.");
+                    return;
+                }
+                if (localStorage.getItem('name')) {
+                    document.getElementById("name").value = localStorage.getItem('name');
+                }
+                if (localStorage.getItem('email')) {
+                    document.getElementById("email").value = localStorage.getItem('email');
+                }
+            }
+            document.addEventListener("DOMContentLoaded", loadData);
+
+            window.saveData = saveData;
+
+            window.onload = loadData;
+
+
+        }());
+    </script>
 </head>
 <body>
 <header>
@@ -41,9 +87,9 @@
         <h3>Оставить заявку</h3>
     </div>
     <div class="buy-body">
-        <form>
-            <input name="name" placeholder="Введите имя">
-            <input name="email" placeholder="Введите email">
+        <form onsubmit="event.preventDefault(); saveData();" action="#">
+            <input name="name" id="name" placeholder="Введите имя" required>
+            <input name="email" id="email" placeholder="Введите email" required>
             <input name="phone" placeholder="Введите телефон">
             <button type="submit" class="btn">Записаться</button>
             <p>Нажимая на кнопку, Вы принимаете <a href="/">Положение</a> и <a href="/">Согласие</a> на обработку персональных данных.</p>
