@@ -6,8 +6,9 @@ body {
 }
 
 nav {
-    background: #fae497;
-    color: #fff;
+    background-image: url(../img/nav.jpg);
+    background-size: cover;
+    background-position: center;
     padding: 15px;
 }
 
@@ -22,14 +23,16 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
     text-decoration: none;
 }
 
-header, main, section {
+header, main, section, footer {
     padding: 20px;
 }
+main {
+    background-color: #D7E1F2;
 
+}
 header .header-contacts a {
     margin: 0 10px;
     font-size: 20px;
